@@ -18,7 +18,6 @@ xui.Class('App', 'xui.Module',{
                 xui.create("xui.UI.Input")
                 .setHost(host,"iKey")
                 .setName("key")
-                .setDirtyMark(false)
                 .setDisabled(true)
                 .setLeft("5.833333333333333em")
                 .setTop("0.5em")
@@ -29,7 +28,6 @@ xui.Class('App', 'xui.Module',{
                 xui.create("xui.UI.Input")
                 .setHost(host,"iValue")
                 .setName("value")
-                .setDirtyMark(false)
                 .setLeft("5.833333333333333em")
                 .setTop("3em")
                 .setWidth("15em")
@@ -47,36 +45,36 @@ xui.Class('App', 'xui.Module',{
                 .setCaption("Update")
                 .onClick([
                     {
-                        "desc":"get Id",
-                        "type":"control",
-                        "target":"treegrid",
-                        "args":[
+                        "desc" : "get Id",
+                        "type" : "control",
+                        "target" : "treegrid",
+                        "args" : [
                             "{page.treegrid.getActiveRow()}",
                             "temp",
                             "row",
                             ""
                         ],
-                        "method":"getActiveRow",
-                        "redirection":"other:callback:call",
-                        "event":1
+                        "method" : "getActiveRow",
+                        "redirection" : "other:callback:call",
+                        "event" : 1
                     },
                     {
-                        "desc":"get data",
-                        "type":"control",
-                        "target":"con_update",
-                        "args":[
+                        "desc" : "get data",
+                        "type" : "control",
+                        "target" : "con_update",
+                        "args" : [
                             "{page.con_update.getFormValues()}",
                             "temp",
                             "data"
                         ],
-                        "method":"getFormValues",
-                        "redirection":"other:callback:call"
+                        "method" : "getFormValues",
+                        "redirection" : "other:callback:call"
                     },
                     {
-                        "desc":"call update API",
-                        "type":"module",
-                        "target":"module_firestoreservice1",
-                        "args":[
+                        "desc" : "call update API",
+                        "type" : "module",
+                        "target" : "module_firestoreservice1",
+                        "args" : [
                             "{page.module_firestoreservice1.updateDoc}",
                             "none",
                             "",
@@ -85,9 +83,9 @@ xui.Class('App', 'xui.Module',{
                             "{temp.data}",
                             "{temp.row.id}"
                         ],
-                        "method":"$Functions.updateDoc",
-                        "event":1,
-                        "redirection":"other:callback:call"
+                        "method" : "$Functions.updateDoc",
+                        "event" : 1,
+                        "redirection" : "other:callback:call"
                     }
                 ])
             );
@@ -125,7 +123,6 @@ xui.Class('App', 'xui.Module',{
                 .setHost(host,"iKey2")
                 .setName("key")
                 .setRequired(true)
-                .setDirtyMark(false)
                 .setLeft("5.833333333333333em")
                 .setTop("0.5em")
                 .setWidth("15em")
@@ -136,7 +133,6 @@ xui.Class('App', 'xui.Module',{
                 .setHost(host,"iValue2")
                 .setName("value")
                 .setRequired(true)
-                .setDirtyMark(false)
                 .setLeft("5.833333333333333em")
                 .setTop("3em")
                 .setWidth("15em")
@@ -153,33 +149,33 @@ xui.Class('App', 'xui.Module',{
                 .setCaption("Add a new row")
                 .onClick([
                     {
-                        "desc":"check form first",
-                        "type":"control",
-                        "target":"con_create",
-                        "args":[
+                        "desc" : "check form first",
+                        "type" : "control",
+                        "target" : "con_create",
+                        "args" : [
                             "{page.con_create.checkValid()}"
                         ],
-                        "method":"checkValid",
-                        "event":1,
-                        "redirection":"other:callback:call"
+                        "method" : "checkValid",
+                        "event" : 1,
+                        "redirection" : "other:callback:call"
                     },
                     {
-                        "desc":"get data from form",
-                        "type":"control",
-                        "target":"con_create",
-                        "args":[
+                        "desc" : "get data from form",
+                        "type" : "control",
+                        "target" : "con_create",
+                        "args" : [
                             "{page.con_create.getFormValues()}",
                             "temp",
                             "data"
                         ],
-                        "method":"getFormValues",
-                        "redirection":"other:callback:call"
+                        "method" : "getFormValues",
+                        "redirection" : "other:callback:call"
                     },
                     {
-                        "desc":"call create API",
-                        "type":"module",
-                        "target":"module_firestoreservice1",
-                        "args":[
+                        "desc" : "call create API",
+                        "type" : "module",
+                        "target" : "module_firestoreservice1",
+                        "args" : [
                             "{page.module_firestoreservice1.createDoc}",
                             "none",
                             "",
@@ -187,8 +183,8 @@ xui.Class('App', 'xui.Module',{
                             "tableDemo",
                             "{temp.data}"
                         ],
-                        "method":"$Functions.createDoc",
-                        "redirection":"other:callback:call"
+                        "method" : "$Functions.createDoc",
+                        "redirection" : "other:callback:call"
                     }
                 ])
             );
@@ -235,59 +231,46 @@ xui.Class('App', 'xui.Module',{
                 xui.create("xui.UI.TreeGrid")
                 .setHost(host,"treegrid")
                 .setDesc("to list all records")
-                .setDirtyMark(false)
                 .setRowHandler(false)
                 .setHeader([
                     {
-                        "id":"key",
-                        "caption":"Key",
-                        "flexSize":true,
-                        "width":"6.666666666666667em",
-                        "type":"label",
-                        "_cells":{ },
-                        "_serialId":"-h_a",
-                        "_colWidth":"7.083333333333333em",
-                        "_cellWidth":"6.666666666666667em",
-                        "_hcellheight":"2em",
-                        "_region":2
+                        "id" : "key",
+                        "caption" : "Key",
+                        "flexSize" : true,
+                        "width" : "6.704761904761905em",
+                        "type" : "label"
                     },
                     {
-                        "id":"value",
-                        "caption":"Value",
-                        "flexSize":true,
-                        "width":"13.333333333333334em",
-                        "type":"label",
-                        "_cells":{ },
-                        "_serialId":"-h_b",
-                        "_colWidth":"14.083333333333334em",
-                        "_cellWidth":"13.333333333333334em",
-                        "_hcellheight":"2em",
-                        "_region":2
+                        "id" : "value",
+                        "caption" : "Value",
+                        "flexSize" : true,
+                        "width" : "13.333333333333334em",
+                        "type" : "label"
                     }
                 ])
                 .afterRowActive([
                     {
-                        "desc":"enable update button",
-                        "type":"control",
-                        "target":"btnD",
-                        "args":[ ],
-                        "method":"enable"
+                        "desc" : "enable update button",
+                        "type" : "control",
+                        "target" : "btnD",
+                        "args" : [ ],
+                        "method" : "enable"
                     },
                     {
-                        "desc":"enable delete button",
-                        "type":"control",
-                        "target":"btnU",
-                        "args":[ ],
-                        "method":"enable"
+                        "desc" : "enable delete button",
+                        "type" : "control",
+                        "target" : "btnU",
+                        "args" : [ ],
+                        "method" : "enable"
                     },
                     {
-                        "desc":"fill form",
-                        "type":"control",
-                        "target":"con_update",
-                        "args":[
+                        "desc" : "fill form",
+                        "type" : "control",
+                        "target" : "con_update",
+                        "args" : [
                             "{page.treegrid.getRowMap()}"
                         ],
-                        "method":"setFormValues"
+                        "method" : "setFormValues"
                     }
                 ])
             );
@@ -317,7 +300,6 @@ xui.Class('App', 'xui.Module',{
                 .setHost(host,"btnD")
                 .setName("deleteButton")
                 .setDesc("to trigger delete function")
-                .setDirtyMark(false)
                 .setDisabled(true)
                 .setLeft("30em")
                 .setTop("8.333333333333334em")
@@ -325,23 +307,23 @@ xui.Class('App', 'xui.Module',{
                 .setCaption("Delete the active row")
                 .onClick([
                     {
-                        "desc":"get active row",
-                        "type":"control",
-                        "target":"treegrid",
-                        "args":[
+                        "desc" : "get active row",
+                        "type" : "control",
+                        "target" : "treegrid",
+                        "args" : [
                             "{page.treegrid.getActiveRow()}",
                             "temp",
                             "row"
                         ],
-                        "method":"getActiveRow",
-                        "redirection":"other:callback:call",
-                        "event":1
+                        "method" : "getActiveRow",
+                        "redirection" : "other:callback:call",
+                        "event" : 1
                     },
                     {
-                        "desc":"call delete API",
-                        "type":"module",
-                        "target":"module_firestoreservice1",
-                        "args":[
+                        "desc" : "call delete API",
+                        "type" : "module",
+                        "target" : "module_firestoreservice1",
+                        "args" : [
                             "{page.module_firestoreservice1.deleteDoc}",
                             "none",
                             "",
@@ -349,8 +331,8 @@ xui.Class('App', 'xui.Module',{
                             "tableDemo",
                             "{temp.row.id}"
                         ],
-                        "method":"$Functions.deleteDoc",
-                        "redirection":"other:callback:call"
+                        "method" : "$Functions.deleteDoc",
+                        "redirection" : "other:callback:call"
                     }
                 ])
             );
@@ -379,12 +361,12 @@ xui.Class('App', 'xui.Module',{
                 xui.create("Module.FirestoreService", "xui.Module")
                 .setHost(host,"module_firestoreservice1")
                 .setEvents({
-                    "onFirebaseLogin":[
+                    "onFirebaseLogin" : [
                         {
-                            "desc":"Call listDocs API",
-                            "type":"module",
-                            "target":"module_firestoreservice1",
-                            "args":[
+                            "desc" : "Call listDocs API",
+                            "type" : "module",
+                            "target" : "module_firestoreservice1",
+                            "args" : [
                                 "{page.module_firestoreservice1.listDocs}",
                                 undefined,
                                 undefined,
@@ -393,92 +375,92 @@ xui.Class('App', 'xui.Module',{
                                 undefined,
                                 "100"
                             ],
-                            "method":"$Functions.listDocs",
-                            "redirection":"other:callback:call"
+                            "method" : "$Functions.listDocs",
+                            "redirection" : "other:callback:call"
                         }
                     ],
-                    "onDocsList":[
+                    "onDocsList" : [
                         {
-                            "desc":"refresh grid",
-                            "type":"page",
-                            "target":"App",
-                            "args":[
+                            "desc" : "refresh grid",
+                            "type" : "page",
+                            "target" : "App",
+                            "args" : [
                                 "{page.functions.refreshGrid}",
                                 undefined,
                                 undefined,
                                 "{args[2]}"
                             ],
-                            "method":"functions.refreshGrid",
-                            "redirection":"other:callback:call"
+                            "method" : "functions.refreshGrid",
+                            "redirection" : "other:callback:call"
                         }
                     ],
-                    "onDocCreate":[
+                    "onDocCreate" : [
                         {
-                            "desc":"clear form",
-                            "type":"control",
-                            "target":"con_create",
-                            "args":[ ],
-                            "method":"formClear"
+                            "desc" : "clear form",
+                            "type" : "control",
+                            "target" : "con_create",
+                            "args" : [ ],
+                            "method" : "formClear"
                         },
                         {
-                            "desc":"add row",
-                            "type":"control",
-                            "target":"treegrid",
-                            "args":[
+                            "desc" : "add row",
+                            "type" : "control",
+                            "target" : "treegrid",
+                            "args" : [
                                 "{args[2]}",
                                 null,
                                 null,
                                 true
                             ],
-                            "method":"insertMapRows"
+                            "method" : "insertMapRows"
                         },
                         {
-                            "desc":"active row",
-                            "type":"control",
-                            "target":"treegrid",
-                            "args":[
+                            "desc" : "active row",
+                            "type" : "control",
+                            "target" : "treegrid",
+                            "args" : [
                                 "{args[3]}",
                                 ""
                             ],
-                            "method":"setActiveRow",
-                            "timeout":300,
-                            "resetid":""
+                            "method" : "setActiveRow",
+                            "timeout" : 300,
+                            "resetid" : ""
                         }
                     ],
-                    "onDocUpdate":[
+                    "onDocUpdate" : [
                         {
-                            "desc":"update row",
-                            "type":"control",
-                            "target":"treegrid",
-                            "args":[
+                            "desc" : "update row",
+                            "type" : "control",
+                            "target" : "treegrid",
+                            "args" : [
                                 "{page.treegrid.setRowMap()}",
                                 undefined,
                                 undefined,
                                 undefined,
                                 "{args[2]}"
                             ],
-                            "method":"setRowMap",
-                            "redirection":"other:callback:call"
+                            "method" : "setRowMap",
+                            "redirection" : "other:callback:call"
                         }
                     ],
-                    "onDocDelete":[
+                    "onDocDelete" : [
                         {
-                            "desc":"remove row",
-                            "type":"control",
-                            "target":"treegrid",
-                            "args":[ ],
-                            "method":"removeRows"
+                            "desc" : "remove row",
+                            "type" : "control",
+                            "target" : "treegrid",
+                            "args" : [ ],
+                            "method" : "removeRows"
                         },
                         {
-                            "desc":"try to active first row",
-                            "type":"control",
-                            "target":"treegrid",
-                            "args":[
+                            "desc" : "try to active first row",
+                            "type" : "control",
+                            "target" : "treegrid",
+                            "args" : [
                                 "{0}"
                             ],
-                            "method":"setActiveRow",
-                            "timeout":300,
-                            "resetid":""
+                            "method" : "setActiveRow",
+                            "timeout" : 300,
+                            "resetid" : ""
                         }
                     ]
                 })
