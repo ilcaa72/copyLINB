@@ -23,7 +23,7 @@ xui.Class('Module.FirestoreService', 'xui.Module',{
   "apiKey": "AIzaSyCr0gxCLTUoI374txYZdHbO9gZWrtG_XfQ",
   "authDomain": "cross76088.firebaseapp.com",
   "projectId": "cross76088",
-       "databaseURL": "https://cross76088.firebaseio.com" ,      
+  "databaseURL": "https://cross76088.firebaseio.com" ,      
   "storageBucket": "cross76088.appspot.com",
   "messagingSenderId": "841127422157",
   "appId": "1:841127422157:web:87b244465f436dcee8a184"
